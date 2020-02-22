@@ -5,7 +5,10 @@ services:
     - docker
 
 before_install:
-    - docker build -t funkrider/docker-react -f Dockerfile.dev
+    - docker build -t funkrider/docker-react -f Dockerfile.dev .
 
 script:
+# - docker run            funkrider/docker-react npm run test -- --coverage
   - docker run -e CI=true funkrider/docker-react npm run test
+
+
