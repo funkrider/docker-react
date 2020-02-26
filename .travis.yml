@@ -11,4 +11,19 @@ script:
 # - docker run            funkrider/docker-react npm run test -- --coverage
   - docker run -e CI=true funkrider/docker-react npm run test
 
+deploy:
+    provider: elasticbeanstalk
+# region, app & env come from the AWS EBS console
+    region: "us-east-2"
+    app: "docker-react"
+    env: "DockerReact-env"
+# bucket_name comes from either AWS S3 console or logs from EBS
+    bucket_name: "elasticbeanstalk-us-east-2-477328556373"
+# bucket_path is the name of the app - same as above
+    bucket_path: "docker-react"
+# on specifies which branch to watch for commits against to trigger a push
+    on:
+        branch: master
 
+access_key_id: $AWS_ACCESS_KEY
+secret_access_key: $AWS_SECRET_KEY
