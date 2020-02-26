@@ -1,5 +1,8 @@
 language: generic 
 
+access_key_id: $AWS_ACCESS_KEY
+secret_access_key: "$AWS_SECRET_KEY"
+
 sudo: required
 services:
     - docker
@@ -24,6 +27,3 @@ deploy:
 # on specifies which branch to watch for commits against to trigger a push
     on:
         branch: master
-
-access_key_id: $AWS_ACCESS_KEY
-secret_access_key: "$AWS_SECRET_KEY"
