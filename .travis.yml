@@ -1,7 +1,5 @@
 language: generic 
 
-access_key_id: "$AWS_ACCESS_KEY"
-secret_access_key: "$AWS_SECRET_KEY"
 
 sudo: required
 services:
@@ -16,6 +14,8 @@ script:
 
 deploy:
     provider: elasticbeanstalk
+    access_key_id: "$AWS_ACCESS_KEY"
+    secret_access_key: "$AWS_SECRET_KEY"
 # region, app & env come from the AWS EBS console
     region: "us-east-2"
     app: "docker-react"
